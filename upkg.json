@@ -1,0 +1,8 @@
+{
+  "commands": {
+    "checkdeps": "checkdeps.sh"
+  },
+  "dependencies": {
+    "orbit-online/records.sh": "v0.9.3"
+  }
+}
