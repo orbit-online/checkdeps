@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
 checkdeps() {
-  set -eo pipefail
-  shopt -s inherit_errexit
-  local pkgroot
-  pkgroot=$(upkg root "${BASH_SOURCE[0]}")
-  # shellcheck source=.upkg/orbit-online/records.sh/records.sh
+  set -eo pipefail; shopt -s inherit_errexit
+  local pkgroot; pkgroot=$(upkg root "${BASH_SOURCE[0]}")
   source "$pkgroot/.upkg/orbit-online/records.sh/records.sh"
 
   local deps=("$@") dep out ret=0
