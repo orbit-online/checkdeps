@@ -3,6 +3,6 @@
     "checkdeps": "checkdeps.sh"
   },
   "dependencies": {
-    "orbit-online/records.sh": "v0.9.3"
+    "orbit-online/records.sh": "v0.9.5"
   }
 }
