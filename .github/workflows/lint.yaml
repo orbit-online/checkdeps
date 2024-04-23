@@ -1,0 +1,21 @@
+name: Lint
+
+on:
+  push:
+    branches: ['*']
+    tags: ['!v*']
+  workflow_call: {}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - uses: orbit-online/upkg-install@v1
+      with:
+        install-dependencies: 'true'
+    - name: Run ShellCheck
+      uses: ludeeus/action-shellcheck@master
+      env:
+        SHELLCHECK_OPTS: -x

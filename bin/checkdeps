@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
+# shellcheck source-path=..
 
 checkdeps() {
   set -eo pipefail; shopt -s inherit_errexit
-  local pkgroot; pkgroot=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
-  source "$pkgroot/.upkg/orbit-online/records.sh/records.sh"
+  local pkgroot; pkgroot=$(realpath "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/..")
+  source "$pkgroot/.upkg/records.sh/records.sh"
 
   local deps=("$@") dep out ret=0
   for dep in "${deps[@]}"; do

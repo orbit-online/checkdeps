@@ -1,0 +1,18 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  lint:
+    uses: ./.github/workflows/lint.yaml
+    secrets: inherit
+  release:
+    needs: [lint]
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    name: Create GitHub release
+    steps:
+    - uses: orbit-online/upkg-release@v1
